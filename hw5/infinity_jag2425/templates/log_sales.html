@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'log_sales.js') }}"></script>
+    
+<script>
+    let sales = {{ sales|tojson }} 
+    let clients = {{ clients|tojson }}
+</script>
+
+<div class="row">
+    <div id="header-style" class="col-12">
+        <div id="trash-container" class="ui-widget-header col-12">
+            trash
+        </div>
+    </div>
+</div>
+<div id="main-row-style" class="row data-row-style">
+    <div class="col-3">
+        Log your paper sales: 
+    </div>
+    <div id="client-input-div" class="col-3">
+        <input type="text" class="ui-widget" id="client-input" placeholder="Client"> 
+    </div>
+    <div id="ream-input-div" class="col-3">
+        <input id="reams-input" placeholder="# Reams">
+    </div>
+    <div class="col-3">
+        <button id="submit-button" type="button" class="btn btn-primary">Submit</button>
+    </div>
+</div>
+<div id="sales-log-container" class="data-row-style">
+    <!--
+    <div class="row sales-row">
+        <div class="sales-person-log col-3"></div>
+        <div class="client-log col-3"></div>
+        <div class="reams-log col-3"></div>
+        <div class="delete-log-button col-3"></div>
+    </div>
+    -->
+</div>
+
+{% endblock %}

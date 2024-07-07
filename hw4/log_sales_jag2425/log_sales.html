@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- JS and CSS -->
+    <script src="./log_sales.js"></script>
+    <link rel="stylesheet" href="./log_sales.css">
+    <title>Home</title>
+    <!-- My video link: https://youtu.be/NRS33Qtw9f8 -->
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="header-style" class="col-12">
+                Columbia Paper Infinity 
+                <div id="trash-container" class="ui-widget-header col-12">
+                    trash
+                </div>
+            </div>
+
+        </div>
+        <div id="main-row-style" class="row data-row-style">
+            <div class="col-3">
+                Log your paper sales: 
+            </div>
+            <div id="client-input-div" class="col-3">
+                <input type="text" class="ui-widget" id="client-input" placeholder="Client"> 
+            </div>
+            <div id="ream-input-div" class="col-3">
+                <input id="reams-input" placeholder="# Reams">
+            </div>
+            <div class="col-3">
+                <button id="submit-button" type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <div id="sales-log-container" class="data-row-style">
+            <!--
+            <div class="row sales-row">
+                <div class="sales-person-log col-3"></div>
+                <div class="client-log col-3"></div>
+                <div class="reams-log col-3"></div>
+                <div class="delete-log-button col-3"></div>
+            </div>
+            -->
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+.top-movie-div {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.img-dimension {
+    height: 250px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 100);
+}
+
+.title-custom {
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.title-custom:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.img-view {
+    height: 320px;
+    width: 300px;
+}
+
+.view-img-trailer {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#header-style {
+    font-size: large;
+    font-weight: bold;
+}

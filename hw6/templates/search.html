@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename='search.js') }}"></script>
+
+{% if filtered_movies %}
+
+    <div> Showing results: {{ query }}</div><br>
+
+    {% for movie in filtered_movies %}
+        <div class="top-movie-div" data-id="{{ movie.id }}">
+            <div>
+                <img class="img-dimension img-fluid" src="{{ movie.image }}" alt="{{ movie.title }}">
+            </div>
+            <div class="title-custom">
+                {{ movie.title }}
+            </div>
+        </div>
+    {% endfor %}
+
+{% else %}
+
+    <div> No results found</div>
+
+{% endif %}
+
+{% endblock %}

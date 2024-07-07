@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename='home.js') }}"></script>
+<script>
+    var topMovies = {{ top_movies|tojson|safe }}
+</script>
+
+<div class="row">
+    <div class="col-3"></div>
+    <div id="popular-movies" class="col-6">
+        
+    </div>
+    <div class="col-3"></div>
+</div>
+
+
+{% endblock %}

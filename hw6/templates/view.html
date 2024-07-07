@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div>
+    {{ movie.title }} ({{ movie.year }})
+</div>
+<div>
+    <img class="img-view img-fluid" src="{{ movie.image }}" alt="{{movie.title}}">
+</div>
+<div>
+    {{ movie.score }}/10.0
+</div>
+<br>
+<div>
+    {{ movie.summary }}
+</div>
+<br>
+<div>
+    Director(s): 
+    {% for director in movie.director %}
+        <ul>
+            <li>{{ director }}</li>
+        </ul>
+    {% endfor %}
+</div>
+<div>
+    Stars: 
+    {% for star in movie.stars %}
+        <ul>
+            <li>{{ star }}</li>
+        </ul>
+    {% endfor %}
+</div>
+<div>
+    Genres:
+    {% for genre in movie.genres %}
+        <ul>
+            <li>{{ genre }}</li>
+        </ul>
+    {% endfor %}
+</div>
+<div>
+    {% if movie.sequence %}
+        Sequence:
+        {% for sequence in movie.sequence %}
+        <ul>
+            <li>{{ sequence }}</li>
+        </ul>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}

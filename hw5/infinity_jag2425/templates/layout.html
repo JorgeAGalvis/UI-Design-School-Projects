@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+
+  <!-- JQuery -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+  <!-- Video: https://youtu.be/3PfT0-lJYds -->
+  <title>People</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg nav-bar-custom-style">
+  <div class="container-fluid">
+    <a class="navbar-brand custom-font-navbrand" href="/">Columbia Paper Infinity</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- href here links to the specified route -->
+        <a class="nav-link custom-font-navlinks" href="/">Welcome</a>
+        <a class="nav-link custom-font-navlinks" href="/infinity">Log sale</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">   
+    {% block content %}
+    
+    {% endblock %}
+</div>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src=https://code.jquery.com/jquery-3.3.1.min.js crossorigin="anonymous"></script>
+    <script>
+        //only allow interaction when the HTML has being fully rendered by the browser 
+        $(document).ready(function() {
+
+            // an event listener on #post_button for clicking
+            $("#post_button").click(function() {
+                createPost($("#custom_textbox").val())
+            })
+
+            function createPost(text) {
+                if((text.trim().length) > 0) {
+                    var newPost = $(`<div class="tweet_post">`)
+                    $(newPost).html(`<span id="user_style">Jorge</span> ` + text)
+                    $("#tweet_posts").prepend(newPost)
+                    $("#custom_textbox").val("").focus() //to make the cursor go to the textbox again
+                    $("#num_count").html(30)
+                }
+            }
+            
+            // an event listener when keydown, event is the key that was pressed 
+            // preventDefault() would disable the natural behavior of that key
+            $("#custom_textbox").on("keydown", function(event) {
+                if($("#custom_textbox").val().length > 30 && event.which === 13) {
+                    event.preventDefault()
+                } else if($("#custom_textbox").val().length < 31 && event.which === 13) {    
+                    createPost($("#custom_textbox").val())
+                    event.preventDefault()
+                }
+            })
+
+            // an event listener for input in the textbox 
+            $("#custom_textbox").on("input", function() {
+                let numOfCharacters = countCharacter()
+                updateClickEvent(numOfCharacters)
+                if(numOfCharacters < 31 && event.which === 13) {
+                    createPost( $("#custom_textbox").val())
+                } 
+            })
+
+            // js hardcoded max chars length 
+            $("#num_count").html(30)
+            // return the number of chars in the text box and dynamically changes the HTML 
+            function countCharacter() {
+                let numberOfCharacters = $("#custom_textbox").val().length
+                if(numberOfCharacters < 31) {
+                    $("#num_count").removeClass("negative_count").addClass("positive_count").html(30 - numberOfCharacters)
+                } else {
+                    $("#num_count").removeClass("positive_count").addClass("negative_count").html(30 - numberOfCharacters)
+                }
+
+                return numberOfCharacters
+            }
+
+            // to update the clicking action 
+            function updateClickEvent(text) {
+                if(text > 30) {
+                    $("#post_button").prop("disabled", true)
+                } else {
+                    $("#post_button").prop("disabled", false)
+                }
+            }
+        })
+    </script>
+    <style>
+        .post_count_container {
+            display: inline-block;
+        }
+
+        #custom_textbox {
+            height: 30px;
+            width: 300px;
+            white-space: nowrap;
+            resize: none;
+            overflow: hidden;
+            border: solid 1px lightgray;
+        }
+
+        .positive_count{
+            color: lightgray;
+        }
+
+        .negative_count {
+            color: red;
+            font-weight: bold;
+        }
+
+        .tweet_post {
+            border: 1px solid black;
+            word-wrap: break-word;
+            word-break: break-all;
+            width: 300px;
+        }
+
+        #user_style {
+            font-weight: bold;
+        }
+    </style>
+    <title>posts</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="col-12">
+            <div>
+                <div>
+                    Write a tweet
+                </div>
+                <div>
+                    <textarea id="custom_textbox"></textarea>
+                </div>
+                <div>
+                    <div class="post_count_container positive_count" id="num_count">
+                    
+                    </div>
+                    <div class="post_count_container">
+                        <button id="post_button">Post Tweet</button>
+                    </div>
+                </div>
+                <br><br>
+                <div>
+                    POSTS
+                </div>
+                <div id="tweet_posts">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
